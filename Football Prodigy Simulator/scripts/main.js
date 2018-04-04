@@ -13,17 +13,47 @@ function UserInterface() {
     }
 }
 
+function UserInterfacePlayerStats() {
+    function name(value) {
+        $("#player-stats-name").text(value);
+
+    }
+
+    function position(value) {
+        $("#player-stats-position").text(value);
+    }
+
+    function update(stats) {
+        $("#player-stats-defending").text(stats.defending);
+        $("#player-stats-dribbling").text(stats.dribbling);
+        $("#player-stats-heading").text(stats.heading);
+        $("#player-stats-pace").text(stats.pace);
+        $("#player-stats-passing").text(stats.passing);
+        $("#player-stats-shooting").text(stats.shooting);
+        $("#player-stats-skills").text(stats.skills);
+        $("#player-stats-weakfoot").text(stats.weakFoot);
+        $("#player-stats-reputation").text(stats.reputation);
+
+    }
+
+    return {
+        name: name,
+        position: position,
+        update: update
+    }
+}
+
 function Character() {
     var stats = {
-        pace: 3,
-        dribbling: 3,
-        passing: 3,
         defending: 3,
+        dribbling: 3,
         heading: 3,
-        shooting: 3,
-        weakFoot: 3,
-        skills: 3,
+        pace: 3,
+        passing: 3,
         reputation: 10,
+        shooting: 3,
+        skills: 3,
+        weakFoot: 3
     };
 
     function train(stat, improvement) {
@@ -57,7 +87,7 @@ function Character() {
         } else if (drillPerformance > 0.75) {
             stats.reputation += 10;
             return {
-                message: "As a result of an amazing performance in training your reputation has risen by 10" 
+                message: "As a result of an amazing performance in training your reputation has risen by 10"
             };
         } else if (drillPerformance > 0.6) {
             stats.reputation += 5;
@@ -73,9 +103,10 @@ function Character() {
         stats.reputation -= value;
     }
 
-    function getStats(stat) {
-        return stats[stat];
+    function getStats() {
+        return stats;
     }
+
 
     function printStats() {
         return "Your current stats are," +
@@ -110,42 +141,55 @@ function Character() {
 
 var userInterface = UserInterface();
 var character = Character();
+var userInterfacePlayerStats = UserInterfacePlayerStats();
 
 var name = userInterface.input("Welcome to the training camp kiddo, what is your name?");
+userInterfacePlayerStats.name(name);
+
 
 var playerPosition = userInterface.input("Do you play as a forward, midfielder or defender?");
 if (playerPosition !== undefined || playerPosition !== "") {
+    userInterfacePlayerStats.position(playerPosition);
     playerPosition = playerPosition.toLowerCase();
 }
 
 if (!name) {
     name = userInterface.input("I didn't catch your name?");
+    userInterfacePlayerStats.name(name);
+
 }
 
 if (!name) {
     name = userInterface.input("Not the way to be starting kiddo, last chance. What's your name?");
+    userInterfacePlayerStats.name(name);
     character.dropReputation(5);
+    userInterfacePlayerStats.update(character.getStats());
 }
 
 if (!name) {
     name = "Newbie";
     userInterface.print("Alright kiddo, you're already off to a bad start. Ill just address you as " + name + ".");
     character.dropReputation(5);
+    userInterfacePlayerStats.name(name);
+    userInterfacePlayerStats.update(character.getStats());
 };
 
 if (playerPosition === "forward") {
     character.train("shooting", 2);
     character.train("heading", 2);
+    userInterfacePlayerStats.update(character.getStats());
 }
 
 if (playerPosition === "midfielder") {
     character.train("dribbling", 2);
     character.train("passing", 2);
+    userInterfacePlayerStats.update(character.getStats());
 }
 
 if (playerPosition === "defender") {
     character.train("defending", 2);
     character.train("heading", 2);
+    userInterfacePlayerStats.update(character.getStats());
 }
 
 if (playerPosition === undefined || playerPosition === "") {
@@ -172,6 +216,7 @@ while (true) {
 
     var drillProgress = Math.floor(Math.random() * 10);
     var result = character.train(drillChoice, drillProgress);
+    userInterfacePlayerStats.update(character.getStats());
 
     if (result.error !== undefined) {
         userInterface.print(result.error);
@@ -180,7 +225,10 @@ while (true) {
         userInterface.print("Your " + drillChoice + " increased by " + drillProgress + ".");
         if (drillProgress > 5) {
             var message = character.raiseReputation();
-            userInterface.print(message.message);
+            if (message !== undefined) {
+                userInterface.print(message.message);
+            }
+            userInterfacePlayerStats.update(character.getStats());
         }
         userInterface.print(character.printStats());
     }

@@ -27,16 +27,19 @@
     <div class="row">
         <div class="col-3">
             <h2>Player Stats</h2>
-            <div id="stats-details" class="list-group list-group-flush">
-                <a class="list-group-item">Name :</a>
-                <a class="list-group-item">Position :</a>
-                <a class="list-group-item">Shooting :</a>
-                <a class="list-group-item">Dribbling :</a>
-                <a class="list-group-item">Passing :</a>
-                <a class="list-group-item">Defending :</a>
-                <a class="list-group-item">Heading :</a>
-                <a class="list-group-item">Reputation :</a>
-            </div>
+            <ul id="stats-details" class="list-group list-group-flush">
+                <li class="list-group-item">Name: <span id="player-stats-name"></span></li>
+                <li class="list-group-item">Position: <span id="player-stats-position">Forward</span></li>
+                <li class="list-group-item">Defending: <span id="player-stats-defending"></span></li>
+                <li class="list-group-item">Dribbling: <span id="player-stats-dribbling"></span></li>
+                <li class="list-group-item">Heading: <span id="player-stats-heading"></span></li>
+                <li class="list-group-item">Pace: <span id="player-stats-pace"></span></li>
+                <li class="list-group-item">Passing: <span id="player-stats-passing"></span></li>
+                <li class="list-group-item">Shooting: <span id="player-stats-shooting"></span></li>
+                <li class="list-group-item">Skills: <span id="player-stats-skills"></span></li>
+                <li class="list-group-item">Weak Foot: <span id="player-stats-weakfoot"></span></li>
+                <li class="list-group-item">Reputation: <span id="player-stats-reputation"></span></li>
+            </ul>
         </div>
 
         <!--Game Controls-->
@@ -54,6 +57,7 @@
         </div>
     </div>
 </div>
+<script src="scripts/jquery-3.3.1.js" type="text/javascript"></script>
 <script src="scripts/main.js" type="text/javascript"></script>
 </body>
 </html>
