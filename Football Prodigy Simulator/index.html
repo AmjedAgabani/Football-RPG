@@ -29,7 +29,7 @@
             <h2>Player Stats</h2>
             <ul id="stats-details" class="list-group list-group-flush">
                 <li class="list-group-item">Name: <span id="player-stats-name"></span></li>
-                <li class="list-group-item">Position: <span id="player-stats-position">Forward</span></li>
+                <li class="list-group-item">Position: <span id="player-stats-position"></span></li>
                 <li class="list-group-item">Defending: <span id="player-stats-defending"></span></li>
                 <li class="list-group-item">Dribbling: <span id="player-stats-dribbling"></span></li>
                 <li class="list-group-item">Heading: <span id="player-stats-heading"></span></li>
@@ -43,17 +43,40 @@
         </div>
 
         <!--Game Controls-->
+        <div class="col-9">
 
-        <div class="col-9 text-center">
-            <h3>What position do you play?</h3>
-            <div class="options btn-group btn-group-lg" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-light">Forward</button>
-                <button type="button" class="btn btn-light">Midfielder</button>
-                <button type="button" class="btn btn-light">Defender</button>
+
+            <!--Name Input-->
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3>What's your name?</h3>
+                    <form id="name-form">
+                        <div class="form-group">
+                            <input id="name-form-name" type="text" class="form-control" placeholder="Enter your name here...">
+                        </div>
+                        <button type="submit" class="confirm btn btn-lg btn-light">Submit</button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <button type="button" class="confirm btn btn-lg btn-light">Confirm</button>
+
+            <!--Position Input-->
+
+            <div class="row hide">
+                <div class="col-12 text-center">
+                    <h3>What position do you play?</h3>
+                    <div class="options btn-group btn-group-lg" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-light">Forward</button>
+                        <button type="button" class="btn btn-light">Midfielder</button>
+                        <button type="button" class="btn btn-light">Defender</button>
+                    </div>
+                    <div>
+                        <button type="button" class="confirm btn btn-lg btn-light">Confirm</button>
+                    </div>
+                </div>
             </div>
+
+
         </div>
     </div>
 </div>

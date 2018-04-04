@@ -143,6 +143,13 @@ var userInterface = UserInterface();
 var character = Character();
 var userInterfacePlayerStats = UserInterfacePlayerStats();
 
+$(document).ready(function() {
+    $("#name-form").submit(function(event) {
+        event.preventDefault();
+        userInterfacePlayerStats.name($("#name-form-name").val());
+    });
+});
+
 var name = userInterface.input("Welcome to the training camp kiddo, what is your name?");
 userInterfacePlayerStats.name(name);
 
