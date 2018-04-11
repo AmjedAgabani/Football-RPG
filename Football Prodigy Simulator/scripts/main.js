@@ -1,18 +1,3 @@
-function UserInterface() {
-    function print(message) {
-        window.alert(message);
-    }
-
-    function input(message) {
-        return window.prompt(message);
-    }
-
-    return {
-        print: print,
-        input: input
-    }
-}
-
 function UserInterfacePlayerStats() {
     function name(value) {
         $("#player-stats-name").text(value);
@@ -33,7 +18,6 @@ function UserInterfacePlayerStats() {
         $("#player-stats-skills").text(stats.skills);
         $("#player-stats-weakfoot").text(stats.weakFoot);
         $("#player-stats-reputation").text(stats.reputation);
-
     }
 
     return {
@@ -139,22 +123,53 @@ function Character() {
     };
 }
 
-var userInterface = UserInterface();
+function Storyline() {
+
+    return {
+    };
+}
+
 var character = Character();
 var userInterfacePlayerStats = UserInterfacePlayerStats();
+var storyline = Storyline();
 
 $(document).ready(function() {
     $("#name-form").submit(function(event) {
         event.preventDefault();
         userInterfacePlayerStats.name($("#name-form-name").val());
     });
+
+    var playerPosition = undefined
+    $("#position-options button[type='button']").click(function (event) {
+        playerPosition = $(this).text();
+    });
+
+    $("#position-options button[type='submit']").click(function (event) {
+        event.preventDefault();
+        userInterfacePlayerStats.position(playerPosition);
+
+        if (playerPosition === "Forward") {
+            character.train("shooting", 2);
+            character.train("heading", 2);
+            userInterfacePlayerStats.update(character.getStats());
+        }
+
+        if (playerPosition === "Midfielder") {
+            character.train("dribbling", 2);
+            character.train("passing", 2);
+            userInterfacePlayerStats.update(character.getStats());
+        }
+
+        if (playerPosition === "Defender") {
+            character.train("defending", 2);
+            character.train("heading", 2);
+            userInterfacePlayerStats.update(character.getStats());
+        };
+    });
 });
 
-var name = userInterface.input("Welcome to the training camp kiddo, what is your name?");
-userInterfacePlayerStats.name(name);
 
-
-var playerPosition = userInterface.input("Do you play as a forward, midfielder or defender?");
+/*
 if (playerPosition !== undefined || playerPosition !== "") {
     userInterfacePlayerStats.position(playerPosition);
     playerPosition = playerPosition.toLowerCase();
@@ -179,40 +194,9 @@ if (!name) {
     character.dropReputation(5);
     userInterfacePlayerStats.name(name);
     userInterfacePlayerStats.update(character.getStats());
-};
-
-if (playerPosition === "forward") {
-    character.train("shooting", 2);
-    character.train("heading", 2);
-    userInterfacePlayerStats.update(character.getStats());
 }
 
-if (playerPosition === "midfielder") {
-    character.train("dribbling", 2);
-    character.train("passing", 2);
-    userInterfacePlayerStats.update(character.getStats());
-}
 
-if (playerPosition === "defender") {
-    character.train("defending", 2);
-    character.train("heading", 2);
-    userInterfacePlayerStats.update(character.getStats());
-}
-
-if (playerPosition === undefined || playerPosition === "") {
-    userInterface.print("Welcome " +
-        name +
-        ". Our job is to get you into a football club as an up and coming " +
-        "player" +
-        " for next season, how you perform during this training camp will affect which clubs come knocking for you.");
-
-} else {
-    userInterface.print("Welcome " +
-        name +
-        ". Our job is to get you into a football club as an up and coming " +
-        playerPosition +
-        " for next season, how you perform during this training camp will affect which clubs come knocking for you.");
-}
 
 while (true) {
 
@@ -239,4 +223,4 @@ while (true) {
         }
         userInterface.print(character.printStats());
     }
-}
+}*/

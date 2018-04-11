@@ -48,7 +48,7 @@
 
             <!--Name Input-->
 
-            <div class="row">
+            <div class="row hide">
                 <div class="col-12 text-center">
                     <h3>What's your name?</h3>
                     <form id="name-form">
@@ -62,17 +62,19 @@
 
             <!--Position Input-->
 
-            <div class="row hide">
+            <div class="row">
                 <div class="col-12 text-center">
                     <h3>What position do you play?</h3>
-                    <div class="options btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-light">Forward</button>
-                        <button type="button" class="btn btn-light">Midfielder</button>
-                        <button type="button" class="btn btn-light">Defender</button>
-                    </div>
-                    <div>
-                        <button type="button" class="confirm btn btn-lg btn-light">Confirm</button>
-                    </div>
+                    <form id="position-options">
+                        <div  class="options btn-group btn-group-lg" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-light">Forward</button>
+                            <button type="button" class="btn btn-light">Midfielder</button>
+                            <button type="button" class="btn btn-light">Defender</button>
+                        </div>
+                        <div>
+                            <button type="submit" class="confirm btn btn-lg btn-light">Confirm</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
