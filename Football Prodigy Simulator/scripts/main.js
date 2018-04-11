@@ -123,15 +123,60 @@ function Character() {
     };
 }
 
-function Storyline() {
+function UserInterface() {
+
+    function renderNamePage(gotName) {
+
+        // unhide
+        $("#name-page").removeClass("hide");
+
+        // listen for form submission
+        $("#name-form").submit(function (event) {
+            event.preventDefault();
+            $(this).unbind('submit');
+
+            $("#name-page").addClass("hide");
+            var playerName = $("#name-form-name").val()
+       
+            gotName(playerName);
+        });
+
+    };
 
     return {
+        renderNamePage : renderNamePage
+    };
+}
+
+function Storyline(userInterface) {
+    var playerName = undefined;
+
+    function gotName(nameFromTheUi) {
+        playerName = nameFromTheUi
+        userInterfacePlayerStats.name(playerName);
+    };
+
+    function getName() {
+        userInterface.renderNamePage(gotName);
+    };
+
+    function start() {
+        getName();
+    }
+
+    return {
+        start: start
     };
 }
 
 var character = Character();
 var userInterfacePlayerStats = UserInterfacePlayerStats();
-var storyline = Storyline();
+
+var userInterface = UserInterface();
+var storyline = Storyline(userInterface);
+
+storyline.start();
+
 
 $(document).ready(function() {
     $("#name-form").submit(function(event) {
