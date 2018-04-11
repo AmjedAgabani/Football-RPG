@@ -1,0 +1,77 @@
+﻿body {
+    background-color: #252839;
+}
+
+h1 {
+    color: #f2b632;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 75px;
+    font-weight: 700;
+    letter-spacing: -.025em;
+}
+
+h2 {
+    color: #f2b632;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -.025em;
+}
+
+h3 {
+    color: #b5b5b7;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -.025em;
+}
+
+#stats-details {
+    color: #b5b5b7;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -.025em;
+}
+
+#stats-details li {
+    background-color: transparent;
+    line-height: 0;
+    padding-bottom: 30px;
+    border: none;
+}
+
+p {
+    color: #b5b5b7;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -.025em;
+}
+
+.options {
+    padding-top: 100px;
+}
+
+.options button {
+    color: black;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -.025em;
+}
+
+.confirm {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    letter-spacing: -.025em;
+    margin-top: 150px;
+}
+
+.hide {
+    display: none;
+}
+
+#name-form {
+    padding-top: 80px;
+}

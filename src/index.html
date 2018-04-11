@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,700" rel="stylesheet">
+    <link href="styles/styles.css" type="text/css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <title></title>
+</head>
+<body>
+<div class="container">
+
+    <!--Game Title-->
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Football Prodigy Simulator Game</h1>
+            <p class="text-left">
+                Welcome to the Football Prodigy Simulator Game, put your name out there as the next up and coming talent! Show the world that you deserve to be up there with the big names on the big stage. But before you get there, you have to work hard in training!
+            </p>
+        </div>
+    </div>
+
+    <!--Player Statistics-->
+
+    <div class="row">
+        <div class="col-3">
+            <h2>Player Stats</h2>
+            <ul id="stats-details" class="list-group list-group-flush">
+                <li class="list-group-item">Name: <span id="player-stats-name"></span></li>
+                <li class="list-group-item">Position: <span id="player-stats-position"></span></li>
+                <li class="list-group-item">Defending: <span id="player-stats-defending"></span></li>
+                <li class="list-group-item">Dribbling: <span id="player-stats-dribbling"></span></li>
+                <li class="list-group-item">Heading: <span id="player-stats-heading"></span></li>
+                <li class="list-group-item">Pace: <span id="player-stats-pace"></span></li>
+                <li class="list-group-item">Passing: <span id="player-stats-passing"></span></li>
+                <li class="list-group-item">Shooting: <span id="player-stats-shooting"></span></li>
+                <li class="list-group-item">Skills: <span id="player-stats-skills"></span></li>
+                <li class="list-group-item">Weak Foot: <span id="player-stats-weakfoot"></span></li>
+                <li class="list-group-item">Reputation: <span id="player-stats-reputation"></span></li>
+            </ul>
+        </div>
+
+        <!--Game Controls-->
+        <div class="col-9">
+
+
+            <!--Name Input-->
+
+            <div class="row hide" id="name-page">
+                <div class="col-12 text-center">
+                    <h3>What's your name?</h3>
+                    <form id="name-form">
+                        <div class="form-group">
+                            <input id="name-form-name" type="text" class="form-control" placeholder="Enter your name here...">
+                        </div>
+                        <button type="submit" class="confirm btn btn-lg btn-light">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <!--Position Input-->
+
+            <div class="row hide">
+                <div class="col-12 text-center">
+                    <h3>What position do you play?</h3>
+                    <form id="position-options">
+                        <div  class="options btn-group btn-group-lg" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-light">Forward</button>
+                            <button type="button" class="btn btn-light">Midfielder</button>
+                            <button type="button" class="btn btn-light">Defender</button>
+                        </div>
+                        <div>
+                            <button type="submit" class="confirm btn btn-lg btn-light">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<script src="scripts/jquery-3.3.1.js" type="text/javascript"></script>
+<script src="scripts/main.js" type="text/javascript"></script>
+</body>
+</html>
