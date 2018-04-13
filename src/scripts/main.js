@@ -143,21 +143,75 @@ function UserInterface() {
 
     };
 
+    function renderPositionPage(gotPosition) {
+
+        // unhide
+        $("#position-page").removeClass("hide");
+
+        // listen
+        var playerPosition = undefined
+        $("#position-options button[type='button']").click(function (event) {
+            playerPosition = $(this).text();
+        });
+
+        $("#position-options button[type='submit']").click(function (event) {
+            event.preventDefault();
+            $(this).unbind('submit');
+
+            $("#position-page").addClass("hide");
+                        
+            gotPosition(playerPosition);
+
+        });
+    };
+
     return {
-        renderNamePage : renderNamePage
+        renderNamePage: renderNamePage,
+        renderPositionPage: renderPositionPage
     };
 }
 
-function Storyline(userInterface) {
+function Storyline(userInterface, userInterfacePlayerStats) {
     var playerName = undefined;
 
     function gotName(nameFromTheUi) {
         playerName = nameFromTheUi
         userInterfacePlayerStats.name(playerName);
+        getPosition();
     };
 
     function getName() {
         userInterface.renderNamePage(gotName);
+    };
+
+    var playerPosition = undefined;
+
+    function gotPosition(positionFromTheUi) {
+        playerPosition = positionFromTheUi
+        userInterfacePlayerStats.position(playerPosition);
+
+        if (playerPosition === "Forward") {
+            character.train("shooting", 2);
+            character.train("heading", 2);
+            userInterfacePlayerStats.update(character.getStats());
+        }
+
+        if (playerPosition === "Midfielder") {
+            character.train("dribbling", 2);
+            character.train("passing", 2);
+            userInterfacePlayerStats.update(character.getStats());
+        }
+
+        if (playerPosition === "Defender") {
+            character.train("defending", 2);
+            character.train("heading", 2);
+            userInterfacePlayerStats.update(character.getStats());
+        };
+
+    };
+
+    function getPosition() {
+        userInterface.renderPositionPage(gotPosition);
     };
 
     function start() {
@@ -173,12 +227,12 @@ var character = Character();
 var userInterfacePlayerStats = UserInterfacePlayerStats();
 
 var userInterface = UserInterface();
-var storyline = Storyline(userInterface);
+var storyline = Storyline(userInterface, userInterfacePlayerStats);
 
 storyline.start();
 
 
-$(document).ready(function() {
+/* $(document).ready(function() {
     $("#name-form").submit(function(event) {
         event.preventDefault();
         userInterfacePlayerStats.name($("#name-form-name").val());
@@ -212,6 +266,7 @@ $(document).ready(function() {
         };
     });
 });
+*/
 
 
 /*
