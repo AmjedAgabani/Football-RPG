@@ -3,7 +3,7 @@ var character = Character();
 var userInterfacePlayerStats = UserInterfacePlayerStats();
 
 var userInterface = UserInterface($);
-var storyline = Storyline(userInterface, userInterfacePlayerStats);
+var storyline = Storyline(character, userInterface, userInterfacePlayerStats);
 
 storyline.start();
 

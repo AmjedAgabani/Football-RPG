@@ -5,7 +5,7 @@
  *  Purpose:
  *      *) controls story progression
  */
-function Storyline(userInterface, userInterfacePlayerStats) {
+function Storyline(character, userInterface, userInterfacePlayerStats) {
     var playerName = undefined;
 
     function gotName(nameFromTheUi) {
