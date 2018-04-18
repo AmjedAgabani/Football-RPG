@@ -1,4 +1,11 @@
 "use strict";
+/*
+ *  UserInterfacePlayerStats
+ *  
+ *  Purpose:
+ *      *) to display the players stats to user
+ */
+
 function UserInterfacePlayerStats() {
     function name(value) {
         $("#player-stats-name").text(value);

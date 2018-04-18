@@ -1,4 +1,10 @@
 "use strict";
+/*
+ *  Storyline
+ *  
+ *  Purpose:
+ *      *) controls story progression
+ */
 function Storyline(userInterface, userInterfacePlayerStats) {
     var playerName = undefined;
 

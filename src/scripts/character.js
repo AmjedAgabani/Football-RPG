@@ -1,4 +1,13 @@
 "use strict";
+/*
+ *  Character
+ *  
+ *  Purpose:
+ *      *) control player stats
+ *      *) control player name
+ *      *) control player position
+ */
+
 function Character() {
     var stats = {
         defending: 3,
@@ -63,34 +72,10 @@ function Character() {
         return stats;
     }
 
-
-    function printStats() {
-        return "Your current stats are," +
-            " pace = " +
-            stats.pace +
-            " dribbling = " +
-            stats.dribbling +
-            " passing = " +
-            stats.passing +
-            " defending = " +
-            stats.defending +
-            " heading = " +
-            stats.heading +
-            " shooting = " +
-            stats.shooting +
-            " weak foot = " +
-            stats.weakFoot +
-            " skills = " +
-            stats.skills +
-            " reputation = " +
-            stats.reputation;
-    }
-
     return {
         dropReputation: dropReputation,
         raiseReputation: raiseReputation,
         train: train,
-        getStats: getStats,
-        printStats: printStats
+        getStats: getStats
     };
 }

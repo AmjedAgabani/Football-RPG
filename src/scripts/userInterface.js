@@ -1,4 +1,12 @@
 "use strict";
+/*
+ *  UserInterface
+ *  
+ *  Purpose:
+ *      *) to accept inputs from user
+ *      *) to display user interface to user
+ */
+
 function UserInterface(jquery) {
     var $ = jquery;
 
