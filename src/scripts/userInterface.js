@@ -1,5 +1,6 @@
 "use strict";
-function UserInterface() {
+function UserInterface(jquery) {
+    var $ = jquery;
 
     function renderNamePage(gotName) {
 

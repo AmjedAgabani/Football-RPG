@@ -2,10 +2,11 @@
 var character = Character();
 var userInterfacePlayerStats = UserInterfacePlayerStats();
 
-var userInterface = UserInterface();
+var userInterface = UserInterface($);
 var storyline = Storyline(userInterface, userInterfacePlayerStats);
 
 storyline.start();
+
 
 
 /* $(document).ready(function() {
