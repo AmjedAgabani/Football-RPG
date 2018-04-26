@@ -26,6 +26,13 @@ h3 {
     letter-spacing: -.025em;
 }
 
+.error-message {
+    color: #990000;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+
 #stats-details {
     color: #b5b5b7;
     font-family: 'Exo 2', sans-serif;

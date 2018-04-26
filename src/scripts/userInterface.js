@@ -16,14 +16,20 @@ function UserInterface(jquery) {
         $("#name-page").removeClass("hide");
 
         // listen for form submission
-        $("#name-form").submit(function (event) {
+        $("#name-form").submit(function(event) {
             event.preventDefault();
-            $(this).unbind('submit');
 
+            if ($("#name-form-name").val() === "") {
+                $("#name-page .error-message").text("You haven't entered your name");
+                return;
+            }
+
+            $(this).unbind('submit');
             $("#name-page").addClass("hide");
-            var playerName = $("#name-form-name").val()
-       
+            $("#name-page .error-message").text("");
+            var playerName = $("#name-form-name").val();
             gotName(playerName);
+
         });
 
     };
@@ -34,17 +40,22 @@ function UserInterface(jquery) {
         $("#position-page").removeClass("hide");
 
         // listen
-        var playerPosition = undefined
-        $("#position-options button[type='button']").click(function (event) {
+        var playerPosition = undefined;
+        $("#position-options button[type='button']").click(function(event) {
             playerPosition = $(this).text();
         });
 
-        $("#position-options button[type='submit']").click(function (event) {
+        $("#position-options button[type='submit']").click(function(event) {
             event.preventDefault();
-            $(this).unbind('submit');
+            if (playerPosition === undefined) {
+                $("#position-page .error-message").text("You haven't selected your position");
+                return;
+            }
 
+            $(this).unbind('submit');
+            $("#name-page .error-message").text("");
             $("#position-page").addClass("hide");
-                        
+
             gotPosition(playerPosition);
 
         });
